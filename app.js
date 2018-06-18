@@ -25,7 +25,7 @@ let app={
         let monitor=new Monitor({
             onchange:function(event){
                 let context={
-                    request:new URL(event.newValue).hash.slice(1),
+                    request:new URL(event.newURL).hash.slice(1),
                     parent:document.getElementById('app')
                 };
                 spa.dispatch(context);
