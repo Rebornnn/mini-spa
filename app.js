@@ -4,11 +4,11 @@
 
 import {Monitor} from './middleware/monitor.js';
 import {spa} from './middleware/spa.js';
-import {rest} from './middleware/RESTparse.JS';
+import {rest} from './middleware/RESTparse.js';
 //import {history} from './middleware/history.js';
 import {rewrite} from './middleware/rewrite.js';
 import {filter} from './middleware/filter/filter.js';
-import {AuthFilter} from './middleware/filter/AuthFilter.js';
+import {AuthFilter} from './middleware/filter/authFilter.js';
 import {router} from './middleware/router.js';
 import {User} from './middleware/module/User.js';
 import {Group} from './middleware/module/Group.js';
