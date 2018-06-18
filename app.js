@@ -4,8 +4,8 @@
 
 import {Monitor} from './middleware/monitor.js';
 import {spa} from './middleware/spa.js';
-import {rest} from './middleware/rest.js';
-import {history} from './middleware/history.js';
+import {rest} from './middleware/RESTparse.JS';
+//import {history} from './middleware/history.js';
 import {rewrite} from './middleware/rewrite.js';
 import {filter} from './middleware/filter/filter.js';
 import {AuthFilter} from './middleware/filter/AuthFilter.js';
@@ -25,7 +25,7 @@ let app={
         let monitor=new Monitor({
             onchange:function(event){
                 let context={
-                    request:new URL(event.newValue),
+                    request:new URL(event.newValue).hash.slice(1),
                     parent:document.getElementById('app')
                 };
                 spa.dispatch(context);

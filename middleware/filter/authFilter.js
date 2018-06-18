@@ -1,7 +1,7 @@
 /**
  * 登录过滤器
  */
-import Filter from './baseFilter';
+import Filter from './baseFilter.js';
 
 export class AuthFilter extends Filter{
     doFilter(){
