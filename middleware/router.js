@@ -2,6 +2,8 @@
  * 路由器中间件
  */
 
+import {Module} from './module/Module.js'
+ 
 export function router(opt){
     let routes=opt.routes||{};
     let current=null;
@@ -16,7 +18,7 @@ export function router(opt){
 
         //模块还没构建时先构建
         if(!(module instanceof Module)){
-            module=new module();
+            module=new module(context);
             routes[name]=module;
             module.build(context);
         }

@@ -50,7 +50,7 @@ export function rest(opt){
 
     return function(context,next){
         let req=context.request;
-        req.restParams=getParams(req.pathname);
+        req.restParams=getParams(req.hash.slice(1));
 
         next();
     }

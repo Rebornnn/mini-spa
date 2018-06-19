@@ -20,12 +20,12 @@ let app={
         spa.add(rewrite(options));
         filter.add(AuthFilter);
         spa.add(filter.mw);
-        spa.add(router);
+        spa.add(router(options));
 
         let monitor=new Monitor({
             onchange:function(event){
                 let context={
-                    request:new URL(event.newURL).hash.slice(1),
+                    request:new URL(event.newURL),
                     parent:document.getElementById('app')
                 };
                 spa.dispatch(context);
@@ -39,8 +39,12 @@ let app={
 app.start({
     matchers:['user/:id','/group/:gid/user/:uid/'],
     rules:[{
-        matcher: /\/group\/[\d]+\/user\/[\d]+\//i,
+        matcher: /\/user\/[\d]+\//i,
         target: '/user/'
+    },
+    {
+        matcher:/\/group\/[\d]+\//i,
+        target:'/group/'
     }],
     routes:{
         '/user/': User,

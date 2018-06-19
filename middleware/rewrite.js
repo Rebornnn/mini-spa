@@ -25,8 +25,11 @@ export function rewrite(opt){
         }
         if(matcher instanceof RegExp){
             item.matcher=function(ctx){
-                return matcher.text(ctx.request.pathname);
+                var boo=matcher.test(ctx.request.hash.slice(1));
+                console.log(boo);
+                return boo;
             };
+            
             return;
         }
     });
@@ -42,5 +45,7 @@ export function rewrite(opt){
                 context.hash.pathname=target;
             }
         }
+
+        next();
     }
 }
