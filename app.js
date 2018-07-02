@@ -37,7 +37,7 @@ let app={
 
 //调用接口并传入参数
 app.start({
-    matchers:['user/:id','/group/:gid/user/:uid/'],
+    matchers:['/user/:uid/','/group/:gid/'],
     rules:[{
         matcher: /\/user\/[\d]+\//i,
         target: '/user/'

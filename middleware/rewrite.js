@@ -26,7 +26,6 @@ export function rewrite(opt){
         if(matcher instanceof RegExp){
             item.matcher=function(ctx){
                 var boo=matcher.test(ctx.request.hash.slice(1));
-                console.log(boo);
                 return boo;
             };
             

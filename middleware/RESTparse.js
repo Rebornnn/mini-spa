@@ -17,7 +17,7 @@ export function rest(opt){
         };
 
         //将‘:uid’转化为‘([^\/]+?)’
-        let reg=url.replace(/:(.+?)(?=[\/|$])/g,function(p1){
+        let reg=url.replace(/:(.+?)(?=[\/|$])/g,function(match,p1){
             ret.keys.push(p1);
             return '([^\/]+?)'; 
         });
@@ -38,7 +38,7 @@ export function rest(opt){
             let res=item.matcher.exec(path);
             if(res){
                 //将取出的参数与参数名对应
-                item.keys.forEach(key,index => {
+                item.keys.forEach((key,index) => {
                     ret[key]=res[index+1]||'';
                 });
             }

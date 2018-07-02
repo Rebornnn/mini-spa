@@ -15,17 +15,17 @@ export class Group extends Module{
     show(context){
         super.show(context);
         let req=context.request;
-        this._doUpdateUser(req.restParams.ugroup);
+        this._doUpdateUser(req.restParams.gid);
         this._parent.appendChild(this._body);
     }
 
     refresh(context){
         super.refresh(context);
         let req = context.request;
-        this._doUpdateUser(req.restParams.ugroup);
+        this._doUpdateUser(req.restParams.gid);
     }
 
-    _doUpdateUser(uid){
-        this._unode.innerHTML = '<p>大家好，我们是团队' + ugroup + '</p>';
+    _doUpdateUser(gid){
+        this._unode.innerHTML = '<p>大家好，我们是团队' + gid + '</p>';
     }
 }
